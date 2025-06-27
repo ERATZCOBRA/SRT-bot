@@ -51,7 +51,7 @@ module.exports = {
         `> **Server Code:** zjBaf\n\n` +
         `React if joining`
       )
-      .setColor(0x95a5a6);
+      .setColor(0x3498db);
 
     try {
       const guild = interaction.guild;

@@ -78,7 +78,7 @@ module.exports = {
         `> **Appealable:** ${appealable}\n` +
         `> **Approved by:** ${approvedBy}`
       )
-      .setColor('#95a5a6')
+      .setColor(0x3498db)
       .setFooter({
         text: `Signed by ${issuer.username} | On ${timestamp}`,
         iconURL: issuer.displayAvatarURL({ dynamic: true }),

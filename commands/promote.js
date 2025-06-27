@@ -89,7 +89,7 @@ module.exports = {
         ``,
         `> **Approved by:** ${approvedByRaw}`,
       ].join('\n'))
-      .setColor(0x95a5a6)
+      .setColor(0x3498db)
       .setFooter({
         text: `Signed by ${requester.username} | On ${time}`,
         iconURL: requester.displayAvatarURL({ dynamic: true }),

@@ -85,7 +85,7 @@ module.exports = {
         `> **Available Time:** ${availableTime}\n` +
         `> **Status:** ⏳ Pending`
       )
-      .setColor(0x95a5a6)
+      .setColor(0x3498db)
       .setFooter({
         text: `Signed by, ${member?.nickname || user.username} • Time: ${formattedTime}`,
         iconURL: user.displayAvatarURL({ dynamic: true }),

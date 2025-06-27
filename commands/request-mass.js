@@ -20,7 +20,7 @@ module.exports = {
     const embed = new EmbedBuilder()
       .setTitle('Mass Shift Request')
       .setDescription(`${unicodeLine}\n\n${interaction.user} has requested for a mass shift.`)
-      .setColor('#95a5a6')
+      .setColor(0x3498db)
       .setTimestamp();
 
     await targetChannel.send({

@@ -61,7 +61,7 @@ module.exports = {
         `<@${demotedAgent.id}> has been officially demoted to the rank of <@&${newRank.id}>. This action was taken after careful evaluation of recent performance and conduct. We believe this step is necessary to uphold the standards and discipline of our organization. We expect improved performance and commitment moving forward.\n\n` +
         `**Reason for demotion:** ${reason}\n\n` +
         `**Approved by:** ${approvedBy}`,
-      color: 0x95a5a6,
+      color: 0x3498db,
       footer: {
         text: `Signed by ${author} | On ${date} • ${time}`,
         icon_url: authorAvatarURL,

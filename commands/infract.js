@@ -93,7 +93,7 @@ module.exports = {
         `> **Appealable:** ${appealable}\n` +
         `> **Approved by:** ${approvedBy}`
       )
-      .setColor(0x95a5a6)
+      .setColor(0x3498db)
       .setFooter({
         text: `Signed by ${author} | On ${date} • ${time}`,
         iconURL: authorAvatarURL,

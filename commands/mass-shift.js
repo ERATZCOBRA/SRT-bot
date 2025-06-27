@@ -87,7 +87,7 @@ module.exports = {
         `> **Reason:** ${reason}\n` +
         `> **Promotional:** ${promotional}`
       )
-      .setColor(0x95a5a6)
+      .setColor(0x3498db)
       .setFooter({
         text: `Signed by ${author} | ${dayOfWeek}, Time: ${time}`,
         iconURL: authorAvatarURL,

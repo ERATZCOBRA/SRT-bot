@@ -29,9 +29,9 @@ module.exports = {
       .setTitle('Custom Outfit Permission Request')
       .setDescription(
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-        `A personnel has requested a custom outfit permission within the SRT.\n\n` +
+        `A personnel has requested custom outfit permission within the SRT.\n\n` +
         `**Requested by:** ${requester}\n` +
-        `**Requested Duration:** ${duration}\n` +
+        `**Duration:** ${duration}\n` +
         `**Proof/Justification:** [Click to view attachment](${proof.url})`
       )
       .setColor(0x3498db)
@@ -43,15 +43,18 @@ module.exports = {
 
     if (!logChannel || !pingRole) {
       return interaction.reply({
-        content: '❌ Log channel or ping role not found. Please check your `.env` settings.',
+        content: '❌ Log channel or ping role not found. Please check your `.env` file.',
         ephemeral: true,
       });
     }
 
-    await logChannel.send({ content: `<@&${pingRole}> 📥 New outfit request from ${requester}`, embeds: [embed] });
+    await logChannel.send({
+      content: `<@&${pingRole}> 📥 New outfit request from ${requester}`,
+      embeds: [embed],
+    });
 
     await interaction.reply({
-      content: '✅ Your outfit permission request has been submitted and logged for review.',
+      content: '✅ Your outfit permission request has been submitted successfully.',
       ephemeral: true,
     });
   },

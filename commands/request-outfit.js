@@ -21,6 +21,17 @@ module.exports = {
     ),
 
   async execute(interaction) {
+    const requiredRoleId = process.env.OUTFIT_REQUEST_ACCESS_ROLE_ID;
+    const member = interaction.member;
+
+    // 🔒 Check if the user has the required role
+    if (!member.roles.cache.has(requiredRoleId)) {
+      return interaction.reply({
+        content: '❌ You do not have permission to use this command.',
+        ephemeral: true,
+      });
+    }
+
     const duration = interaction.options.getString('duration');
     const proof = interaction.options.getAttachment('proof');
     const requester = interaction.user;

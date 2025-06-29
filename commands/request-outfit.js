@@ -24,7 +24,6 @@ module.exports = {
     const requiredRoleId = process.env.OUTFIT_REQUEST_ACCESS_ROLE_ID;
     const member = interaction.member;
 
-    // 🔒 Check if the user has the required role
     if (!member.roles.cache.has(requiredRoleId)) {
       return interaction.reply({
         content: '❌ You do not have permission to use this command.',
@@ -50,18 +49,22 @@ module.exports = {
       .setTimestamp();
 
     const logChannel = interaction.client.channels.cache.get(process.env.OUTFIT_REQUEST_LOG_CHANNEL_ID);
-    const pingRole1 = process.env.OUTFIT_REQUEST_PING_ROLE_ID;
-    const pingRole2 = process.env.OUTFIT_REQUEST_SECOND_PING_ROLE_ID;
+    const pingRoleIdsRaw = process.env.OUTFIT_REQUEST_PING_ROLE_IDS;
 
-    if (!logChannel || !pingRole1 || !pingRole2) {
+    if (!logChannel || !pingRoleIdsRaw) {
       return interaction.reply({
-        content: '❌ Log channel or one of the ping roles not found. Please check your `.env` file.',
+        content: '❌ Log channel or ping roles not found. Please check your `.env` file.',
         ephemeral: true,
       });
     }
 
+    const pingMentions = pingRoleIdsRaw
+      .split(',')
+      .map(id => `<@&${id.trim()}>`)
+      .join(' ');
+
     await logChannel.send({
-      content: `<@&${pingRole1}> <@&${pingRole2}> 📥 New outfit request from ${requester}`,
+      content: `${pingMentions} 📥 New outfit request from ${requester}`,
       embeds: [embed],
     });
 

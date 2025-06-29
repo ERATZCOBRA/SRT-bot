@@ -26,10 +26,8 @@ module.exports = {
     ),
 
   async execute(interaction) {
-    const allowedRoles = [
-      process.env.OUTFIT_ACCESS_ROLE_1,
-      process.env.OUTFIT_ACCESS_ROLE_2,
-    ];
+    const requiredRoleId = process.env.OUTFIT_ACCESS_ROLE_ID;
+    const member = interaction.member;
 
     if (!interaction.member.roles.cache.hasAny(...allowedRoles)) {
       return interaction.reply({

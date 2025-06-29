@@ -50,17 +50,18 @@ module.exports = {
       .setTimestamp();
 
     const logChannel = interaction.client.channels.cache.get(process.env.OUTFIT_REQUEST_LOG_CHANNEL_ID);
-    const pingRole = process.env.OUTFIT_REQUEST_PING_ROLE_ID;
+    const pingRole1 = process.env.OUTFIT_REQUEST_PING_ROLE_ID;
+    const pingRole2 = process.env.OUTFIT_REQUEST_SECOND_PING_ROLE_ID;
 
-    if (!logChannel || !pingRole) {
+    if (!logChannel || !pingRole1 || !pingRole2) {
       return interaction.reply({
-        content: '❌ Log channel or ping role not found. Please check your `.env` file.',
+        content: '❌ Log channel or one of the ping roles not found. Please check your `.env` file.',
         ephemeral: true,
       });
     }
 
     await logChannel.send({
-      content: `<@&${pingRole}> 📥 New outfit request from ${requester}`,
+      content: `<@&${pingRole1}> <@&${pingRole2}> 📥 New outfit request from ${requester}`,
       embeds: [embed],
     });
 
